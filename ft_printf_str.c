@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_printf_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ctrivino <ctrivino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:15:29 by ctrivino          #+#    #+#             */
-/*   Updated: 2022/10/28 16:46:59 by ctrivino         ###   ########.fr       */
+/*   Updated: 2022/10/30 12:59:00 by ctrivino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprint.h"
-#include "libft.h"
 
-int	ft_print_str(va_list arg)
+int	ft_printf_str(va_list *arg)
 {
-	write(1, &arg, 1);
-	return (1);
+	int	i;
+
+	i = 0;
+	while (arg[i])
+	{
+		write(1, arg[i], 1);
+		i++;
+	}
+	return (i);
 }
