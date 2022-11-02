@@ -1,8 +1,6 @@
-LFLAGS	= libft/libft.a
-
 NAME	= libftprintf.a
 
-SRCS	= ft_print.c ft_printf_char.c ft_printf_nbr_hx.c ft_printf_str.c
+SRCS	= ft_printf.c ft_printf_char.c ft_printf_nbr_hx.c ft_printf_str.c ft_printf_nbr.c ft_printf_u_nbr.c ft_printf_p.c
 
 OBJS	= ${SRCS:.c=.o}
 

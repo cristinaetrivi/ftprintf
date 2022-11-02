@@ -6,14 +6,14 @@
 /*   By: ctrivino <ctrivino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:11:13 by ctrivino          #+#    #+#             */
-/*   Updated: 2022/10/30 11:54:08 by ctrivino         ###   ########.fr       */
+/*   Updated: 2022/11/02 20:06:36 by ctrivino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprint.h"
+#include "ft_printf.h"
 
-int	ft_print_char(va_list arg)
+int	ft_printf_char(int c)
 {
-	write(1, &arg, 1);
+	write(1, &c, 1);
 	return (1);
 }

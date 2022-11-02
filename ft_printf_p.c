@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_nbr_hx.c                                 :+:      :+:    :+:   */
+/*   ft_printf_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ctrivino <ctrivino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 12:26:23 by ctrivino          #+#    #+#             */
-/*   Updated: 2022/11/02 20:06:44 by ctrivino         ###   ########.fr       */
+/*   Created: 2022/11/01 21:15:46 by ctrivino          #+#    #+#             */
+/*   Updated: 2022/11/02 20:06:58 by ctrivino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	s_nbr(long n)
+static int	s_nbr(unsigned long long n)
 {
 	int	i;
 
 	i = 2;
-	while (n / 16 != 0)
+	while (n != 0)
 	{
 		if (n / 16 == 0)
 			break ;
@@ -27,17 +27,15 @@ static int	s_nbr(long n)
 	return (i);
 }
 
-int	ft_printf_nbr_hx(long n, int x)
+static int	ft_printf_nbr_p(unsigned long long n)
 {
-	char	str[12];
-	int		a;
-	long	nbr;
+	char				str[18];
+	int					a;
+	unsigned long long	nbr;
 
 	nbr = n;
 	if (nbr == 0)
 		str[0] = '0';
-	if (n < 0)
-		nbr = n + 4294967296;
 	a = s_nbr(nbr) - 1;
 	str[a] = '\0';
 	while (nbr > 0)
@@ -46,8 +44,26 @@ int	ft_printf_nbr_hx(long n, int x)
 		if ((nbr % 16) < 10)
 			str[a] = (nbr % 16) + '0';
 		else
-			str[a] = (nbr % 16) + x;
+			str[a] = (nbr % 16) + 87;
 		nbr = nbr / 16;
 	}
 	return (ft_printf_str(str));
+}
+
+int	ft_printf_p(void *p)
+{
+	int					i;
+	unsigned long long	ad;
+
+	ad = (unsigned long long ) p;
+	i = 2;
+	write(1, "0x", 2);
+	if (p == NULL)
+	{
+		write(1, "0", 1);
+		i++;
+		return (i);
+	}
+	i += ft_printf_nbr_p(ad);
+	return (i);
 }

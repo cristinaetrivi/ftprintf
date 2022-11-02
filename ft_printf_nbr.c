@@ -6,11 +6,18 @@
 /*   By: ctrivino <ctrivino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:58:44 by ctrivino          #+#    #+#             */
-/*   Updated: 2022/10/30 12:07:33 by ctrivino         ###   ########.fr       */
+/*   Updated: 2022/11/02 20:06:49 by ctrivino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprint.h"
+#include "ft_printf.h"
+
+int	abs_sign(int n)
+{
+	if (n < 0)
+		n = n * -1;
+	return (n);
+}
 
 static int	s_nbr(int n)
 {
@@ -51,6 +58,5 @@ int	ft_printf_nbr(int n)
 		nbr = nbr / 10;
 	}
 	str[s_nbr(n) - 1] = '\0';
-	write(1, str, s_nbr(n));
-	return (s_nbr(n));
+	return (ft_printf_str(str));
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_nbr_hx.c                                 :+:      :+:    :+:   */
+/*   ft_printf_u_nbr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ctrivino <ctrivino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 12:26:23 by ctrivino          #+#    #+#             */
-/*   Updated: 2022/11/02 20:06:44 by ctrivino         ###   ########.fr       */
+/*   Created: 2022/11/01 19:43:07 by ctrivino          #+#    #+#             */
+/*   Updated: 2022/11/02 20:07:10 by ctrivino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ static int	s_nbr(long n)
 	int	i;
 
 	i = 2;
-	while (n / 16 != 0)
+	while (n / 10 != 0)
 	{
-		if (n / 16 == 0)
+		if (n / 10 == 0)
 			break ;
 		i++;
-		n = n / 16;
+		n = n / 10;
 	}
 	return (i);
 }
 
-int	ft_printf_nbr_hx(long n, int x)
+int	ft_printf_u_nbr(int n)
 {
 	char	str[12];
 	int		a;
@@ -43,11 +43,8 @@ int	ft_printf_nbr_hx(long n, int x)
 	while (nbr > 0)
 	{
 		a--;
-		if ((nbr % 16) < 10)
-			str[a] = (nbr % 16) + '0';
-		else
-			str[a] = (nbr % 16) + x;
-		nbr = nbr / 16;
+		str[a] = (nbr % 10) + '0';
+		nbr = nbr / 10;
 	}
 	return (ft_printf_str(str));
 }
