@@ -6,7 +6,7 @@
 /*   By: ctrivino <ctrivino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 15:11:58 by ctrivino          #+#    #+#             */
-/*   Updated: 2022/11/02 20:07:16 by ctrivino         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:46:55 by ctrivino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,19 @@ int	ft_printf(char const *str, ...)
 	va_start(args, str);
 	while (str[i])
 	{
+		//"Hola %d como estás? %i ", 52 27
 		if (str[i] == '%')
 		{
 			i++;
 			y += ft_printf_type(args, str[i]);
-			i++;
+			//i++;
 		}
 		else
 		{
 			y += ft_printf_char(str[i]);
-			i++;
+			//i++;
 		}
+		i++;
 	}
 	va_end(args);
 	return (y);

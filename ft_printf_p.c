@@ -6,7 +6,7 @@
 /*   By: ctrivino <ctrivino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 21:15:46 by ctrivino          #+#    #+#             */
-/*   Updated: 2022/11/02 20:06:58 by ctrivino         ###   ########.fr       */
+/*   Updated: 2022/11/03 19:00:45 by ctrivino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ static int	s_nbr(unsigned long long n)
 	i = 2;
 	while (n != 0)
 	{
-		if (n / 16 == 0)
-			break ;
 		i++;
 		n = n / 16;
 	}
@@ -29,7 +27,7 @@ static int	s_nbr(unsigned long long n)
 
 static int	ft_printf_nbr_p(unsigned long long n)
 {
-	char				str[18];
+	char				str[17];
 	int					a;
 	unsigned long long	nbr;
 
